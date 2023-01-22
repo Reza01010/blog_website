@@ -1,0 +1,63 @@
+
+
+{% extends '_base.html' %}
+{% block title %}POST list
+{% endblock title %}
+{% block content %}
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-9">
+                {% for post in post_list %}
+                    <div class="card shadow-sm my-3">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ post.title }}</h5>
+                            <hr>
+                            <p class="card-text py-3">
+                                {{ post.text }}
+                            </p>
+                            <h6 class="card-subtitle mb-2 text-muted small py-2">{{ post.datetime_created }}</h6>
+
+
+                            <div class="btn-group" role="group" aria-label="Basic outlined example">
+                                <div class="btn-group" role="group" aria-label="Basic outlined example"><a href="{% url 'post_detail' post.id %}">
+                                    <button type="button" class="btn btn-outline-primary btn btn-outline-success">More</button></a></div>
+                                <div class="btn-group" role="group" aria-label="Basic outlined example"><a href="{% url 'post_update' post.id %}">
+                                    <button type="button" class="btn btn-outline-primary btn btn-outline-warning">Edit</button></a></div>
+                                <div class="btn-group" role="group" aria-label="Basic outlined example"><a href="{% url 'post_delete' post.id %}">
+                                    <button type="button" class="btn btn-outline-primary btn btn-outline-danger">Delete</button></a></div>
+                            </div>
+                            <h1>{{ post.id }}</h1>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col-3">
+
+                <div class="card my-4">
+                    <h5 class="card-header">About</h5>
+                    <div class="card-body">
+                        <p class="card-text">We love python and django. So we created a blog site to share our
+                            thoughts</p>
+                        <a href="#"
+                           class="btn btn-sm btn-danger">
+                            More...
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock content %}
+
+
+
+
+
+
+
+
+
+
+
+
